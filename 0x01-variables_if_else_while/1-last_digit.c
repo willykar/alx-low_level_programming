@@ -4,7 +4,7 @@
 /**
  * main - print the last digit of the number 
  * stored in the variable n
- * Return: 0
+ * Return: 0 success
 */
 
 int main(void)
