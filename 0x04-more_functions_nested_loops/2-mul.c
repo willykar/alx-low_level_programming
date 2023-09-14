@@ -5,7 +5,6 @@
  * @b: second operand for multiplication
  * Return: result of multiplication
 */
-
 int mul(int a, int b)
 {
 	return (a * b);
