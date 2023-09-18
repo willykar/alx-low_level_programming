@@ -4,7 +4,6 @@
  * @a: first pointer to an int
  * @b: second pointer to an int
 */
-
 void swap_int(int *a, int *b)
 {
 	int c;
