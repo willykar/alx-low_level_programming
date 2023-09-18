@@ -3,7 +3,6 @@
  * puts_half - prints the second half of the string followed by a new line
  * @str: pointer to a string
 */
-
 void puts_half(char *str)
 {
 	int i, j, length;
@@ -14,10 +13,11 @@ void puts_half(char *str)
 	{
 		length++;
 	}
-	b = (length / 2);
+	j = (length / 2);
+
 	if ((length % 2) == 1)
 	{
-		b = ((length + 1) / 2);
+		j = ((length + 1) / 2);
 	}
 	for (i = j; str[i] != '\0'; i++)
 	{
