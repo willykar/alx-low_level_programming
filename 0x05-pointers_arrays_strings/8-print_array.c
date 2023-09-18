@@ -2,12 +2,10 @@
 #include <stdio.h>
 
 /**
- * print_array - prints n elements of an array of integers followed by
- * a new line
+ * print_array - prints n elements of an array by a new line
  * @a: pointer to the array
  * @n: length of the array
 */
-
 void print_array(int *a, int n)
 {
 	int b;
@@ -21,4 +19,5 @@ void print_array(int *a, int n)
 			printf(" ");
 		}
 	}
+	printf("\n");
 }
