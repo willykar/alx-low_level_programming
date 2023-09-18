@@ -4,7 +4,6 @@
  * the first character
  * @str: pointer to a string
  */
-
 void puts2(char *str)
 {
 	int a;
