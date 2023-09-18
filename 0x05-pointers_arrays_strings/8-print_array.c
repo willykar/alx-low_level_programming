@@ -21,4 +21,4 @@ void print_array(int *a, int n)
 			printf(" ");
 		}
 	}
-sh: 1: wq: not found
+}
