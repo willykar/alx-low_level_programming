@@ -7,12 +7,13 @@
  */
 void print_buffer(char *b, int size)
 {
+	int a, c;
+
 	if (size <= 0)
 	{
 		printf("\n");
 		return;
 	}
-	int a, c;
 
 	for (a = 0; a < size; a += 10)
 	{
