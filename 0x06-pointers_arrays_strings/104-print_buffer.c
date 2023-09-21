@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>
+#include "main.h"
 /**
  * print_buffer -function that prints a buffer
  * @b: points to the buffer
@@ -7,48 +7,35 @@
  */
 void print_buffer(char *b, int size)
 {
-	int a, c;
+	int byte, i;
 
-	if (size <= 0)
+	for (byte = 0; byte < size; byte += 10)
 	{
-		printf("\n");
-		return;
-	}
+		printf("%08x: ", byte);
 
-	for (a = 0; a < size; a += 10)
-	{
-		printf("%08x ", a);
-		for (c = 0; c < 10; c++)
+		for (i = 0; i < 10; i++)
 		{
-			if (a + c < size)
-			{
-				printf("%02x", (unsigned char)b[a + c]);
-				if (c % 2 == 1)
-				{
-					printf(" ");
-				}
-			}
+			if ((i + byte) >= size)
+				printf("  ");
 			else
-			{
-				printf("   ");
-			}
+				printf("%02x", *(b + i + byte));
+			if ((i % 2) != 0 && i != 0)
+				printf(" ");
 		}
-		printf(" ");
-		for (c = 0; c < 10; c++)
+		for (i = 0; i < 10; i++)
 		{
-			if (a + c < size)
-			{
-				char d = b[a + c];
-				if (isprint(c))
-				{
-					printf("%c", d);
-				}
-				else
-				{
-					printf(".");
-				}
-			}
+			if ((i + byte) >= size)
+				break;
+			else if (*(b + i + byte) >= 31 &&
+				 *(b + i + byte) <= 126)
+				printf("%c", *(b + i + byte));
+			else
+				printf(".");
 		}
+		if (byte >= size)
+			continue;
 		printf("\n");
 	}
+	if (size <= 0)
+		printf("\n");
 }
