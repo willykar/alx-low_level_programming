@@ -4,7 +4,6 @@
  * @str: string to be encoded into 1337
  * Return:( str)
  */
-
 char *leet(char *str)
 {
 	char leetLetters[] = "aAeEoOtTlL";
@@ -18,7 +17,7 @@ char *leet(char *str)
 
 		while (*pos)
 		{
-			if (*pos == str[i])
+			if (*pos == str[a])
 			{
 				str[a] = *num;
 				break;
