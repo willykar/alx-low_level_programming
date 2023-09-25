@@ -18,7 +18,7 @@ unsigned int _strspn(char *s, char *accept)
 		{
 			if (*s == accept[j])
 			{
-				found = 1;
+				occur = 1;
 				break;
 			}
 		}
