@@ -2,6 +2,7 @@
 /**
  * is_prime_number - returns 1 if the input integer is a prime number
  * @n: number to find if it is a primenumber
+ * @i: integer
  * get_prime - checks if a number is prime
  * Return: (1) if n is a prime number
  */
