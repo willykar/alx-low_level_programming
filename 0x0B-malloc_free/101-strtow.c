@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include "main.h"
 int startIndex(char *s, int index);
 int endIndex(char *s, int index);
 int countWords(char *s);
