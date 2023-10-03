@@ -3,6 +3,8 @@
 #include <string.h>
 #include "main.h"
 int startIndex(char *s, int index);
+int endIndex(char *s, int index);
+int countWords(char *s);
 /**
  * strtow - splits a string into words
  * @str: string of words to be split
