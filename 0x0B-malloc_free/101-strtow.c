@@ -64,7 +64,7 @@ char *copyWord(const char *str, int *start, int end)
 char **strtow(char *str)
 {
 	int j, i;
-	int wordIndex;
+	int wordIndex = 0;
 	int numWords;
 	char **wordArray;
 
