@@ -6,7 +6,6 @@ int countWords(const char *str);
 
 char **strtow(char *str)
 {
-    int numWords;
     int wordIndex = 0;
     int start = 0;
     int i, j;
