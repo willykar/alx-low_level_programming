@@ -1,42 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "main.h"
-
 /**
- * alloc - allocates space in memory for an array
+ * alloc - allocates space. Pointer to a pointer
  * @str: string
  * @len: length of string
- * @size: size of array
- *
- * Return: a pointer to the array or null if allocation was unsucessful
+ * @size: array size
+ * Return: (a pointer to the array) or null if allocation was unsucessful
  */
 char **alloc(char *str, int len, int size)
 {
-	int i, j, wide;
+	int b, c, wide;
 	char **a, before;
 
 	a = malloc((size + 1) * sizeof(char *));
 	before = ' ';
 
-	for (i = 0; i < size; i++)
+	for (b = 0; b < size; b++)
 	{
-		while (j < len)
+		while (c < len)
 		{
-			if (str[j] == ' ' && before != ' ')
+			if (str[c] == ' ' && before != ' ')
 			{
 				before = ' ';
-				j++;
+				c++;
 				break;
 			}
-			if (str[j] != ' ')
+			if (str[c] != ' ')
 				wide++;
-			before = str[j];
-			j++;
+			before = str[c];
+			c++;
 		}
 
-		a[i] = malloc((wide + 1) * sizeof(char));
-		if (a[i] == NULL)
+		a[b] = malloc((wide + 1) * sizeof(char));
+		if (a[b] == NULL)
 		{
 			return (NULL);
 		}
@@ -48,50 +45,49 @@ char **alloc(char *str, int len, int size)
 }
 
 /**
- * strtow - splits a string into words
- * @str: the string to split
- *
- * Return: a pointer to an array of strings or NULL if error
+ * strtow - splits the string into words
+ * @str: the string to be split
+ * Return: a pointer to an array of strings or NULL
  */
 char **strtow(char *str)
 {
 	char **a, before = ' ';
-	int i, j = 0, k = 0, c = 0, len, size = 0;
+	int d, e = 0, k = 0, c = 0, length, size = 0;
 
 	if (str == NULL || strlen(str) == 0)
 		return (NULL);
-	len = strlen(str);
-	for (i = 0; i < len; i++)
+	length = strlen(str);
+	for (d = 0; d < len; d++)
 	{
-		if (str[i] != ' ')
+		if (str[d] != ' ')
 			c = 1;
-		if (str[i] != ' ' && before == ' ')
+		if (str[d] != ' ' && before == ' ')
 			size++;
-		before = str[i];
+		before = str[d];
 	}
 	a = alloc(str, len, size);
 	if (a == NULL || c == 0)
 		return (NULL);
 	before = ' ';
-	for (i = 0; i < size; i++)
+	for (d = 0; d < size; d++)
 	{
-		while (j < len)
+		while (e < len)
 		{
-			if (str[j] == ' ' && before != ' ')
+			if (str[e] == ' ' && before != ' ')
 			{
 				before = ' ';
-				j++;
+				e++;
 				break;
 			}
-			if (str[j] != ' ')
+			if (str[e] != ' ')
 			{
-				a[i][k] = str[j];
+				a[d][k] = str[e];
 				k++;
 			}
-			before = str[j];
-			j++;
+			before = str[e];
+			e++;
 		}
-		a[i][k] = '\0';
+		a[d][k] = '\0';
 		k = 0;
 	}
 	return (a);
