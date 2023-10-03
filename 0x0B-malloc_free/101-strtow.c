@@ -6,28 +6,31 @@ int countWords(const char *str);
 
 char **strtow(char *str)
 {
+    int numWords;
+    int wordIndex = 0;
+    int start = 0;
+    int i, j;
+    
+    char **wordArray = (char **)malloc((numWords + 1) * sizeof(char *));
+    
     if (str == NULL || *str == '\0') {
         return NULL;
     }
 
-    int numWords = countWords(str);
-    char **wordArray = (char **)malloc((numWords + 1) * sizeof(char *));
+    numWords = countWords(str);
     
     if (wordArray == NULL) {
         return NULL; // Memory allocation failed
     }
 
-    int wordIndex = 0;
-    int start = 0;
-
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (i = 0; str[i] != '\0'; i++) {
         if (str[i] == ' ') {
             if (i > start) {
                 // Allocate memory for the word
                 wordArray[wordIndex] = (char *)malloc((i - start + 1) * sizeof(char));
                 if (wordArray[wordIndex] == NULL) {
                     // Memory allocation failed, clean up and return NULL
-                    for (int j = 0; j < wordIndex; j++) {
+                    for (j = 0; j < wordIndex; j++) {
                         free(wordArray[j]);
                     }
                     free(wordArray);
@@ -47,7 +50,7 @@ char **strtow(char *str)
         wordArray[wordIndex] = (char *)malloc((strlen(str + start) + 1) * sizeof(char));
         if (wordArray[wordIndex] == NULL) {
             // Memory allocation failed, clean up and return NULL
-            for (int j = 0; j < wordIndex; j++) {
+            for (j = 0; j < wordIndex; j++) {
                 free(wordArray[j]);
             }
             free(wordArray);
@@ -65,8 +68,9 @@ int countWords(const char *str)
 {
     int count = 0;
     int word = 0;
+    int i;
 
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (i = 0; str[i] != '\0'; i++) {
         if (str[i] != ' ') {
             if (!word) {
                 count++;
@@ -82,13 +86,14 @@ int countWords(const char *str)
 
 int main(void)
 {
+    int i;
     char **words = strtow("Hello World   This is a test");
     if (words == NULL) {
         printf("Memory allocation failed or input is empty.\n");
         return 1;
     }
 
-    for (int i = 0; words[i] != NULL; i++) {
+    for (i = 0; words[i] != NULL; i++) {
         printf("%s\n", words[i]);
         free(words[i]); // Free each word
     }
