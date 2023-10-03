@@ -57,7 +57,7 @@ char **strtow(char *str)
 	if (str == NULL || strlen(str) == 0)
 		return (NULL);
 	length = strlen(str);
-	for (d = 0; d < len; d++)
+	for (d = 0; d < length; d++)
 	{
 		if (str[d] != ' ')
 			c = 1;
@@ -65,13 +65,13 @@ char **strtow(char *str)
 			size++;
 		before = str[d];
 	}
-	a = alloc(str, len, size);
+	a = alloc(str, length, size);
 	if (a == NULL || c == 0)
 		return (NULL);
 	before = ' ';
 	for (d = 0; d < size; d++)
 	{
-		while (e < len)
+		while (e < length)
 		{
 			if (str[e] == ' ' && before != ' ')
 			{
