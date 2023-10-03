@@ -10,6 +10,7 @@ char **strtow(char *str)
     int wordIndex = 0;
     int start = 0;
     int i, j;
+    int numWords = countWords(str);
     
     char **wordArray = (char **)malloc((numWords + 1) * sizeof(char *));
     
