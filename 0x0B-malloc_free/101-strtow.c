@@ -4,7 +4,7 @@
 /**
  * alloc - allocates space. Pointer to a pointer
  * @str: string
- * @len: length of string
+ * @length: length of string
  * @size: array size
  * Return: (a pointer to the array) or null if there is an error
  */
