@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
+int startIndex(char *s, int index);
 /**
  * strtow - splits a string into words
  * @str: string of words to be split
