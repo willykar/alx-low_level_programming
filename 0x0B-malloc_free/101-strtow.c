@@ -6,9 +6,9 @@
  * @str: string
  * @len: length of string
  * @size: array size
- * Return: (a pointer to the array) or null if allocation was unsucessful
+ * Return: (a pointer to the array) or null if there is an error
  */
-char **alloc(char *str, int len, int size)
+char **alloc(char *str, int length, int size)
 {
 	int b, c, wide;
 	char **a, before;
@@ -18,7 +18,7 @@ char **alloc(char *str, int len, int size)
 
 	for (b = 0; b < size; b++)
 	{
-		while (c < len)
+		while (c < length)
 		{
 			if (str[c] == ' ' && before != ' ')
 			{
@@ -43,7 +43,6 @@ char **alloc(char *str, int len, int size)
 
 	return (a);
 }
-
 /**
  * strtow - splits the string into words
  * @str: the string to be split
