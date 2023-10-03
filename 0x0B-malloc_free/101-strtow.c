@@ -14,54 +14,50 @@ char **strtow(char *str)
     char **wordArray = (char **)malloc((numWords + 1) * sizeof(char *));
     
     if (str == NULL || *str == '\0') {
-        return NULL;
+        return (NULL);
     }
 
     numWords = countWords(str);
     
     if (wordArray == NULL) {
-        return NULL; // Memory allocation failed
+        return (NULL);
     }
 
     for (i = 0; str[i] != '\0'; i++) {
         if (str[i] == ' ') {
             if (i > start) {
-                // Allocate memory for the word
                 wordArray[wordIndex] = (char *)malloc((i - start + 1) * sizeof(char));
-                if (wordArray[wordIndex] == NULL) {
-                    // Memory allocation failed, clean up and return NULL
+                if (wordArray[wordIndex] == NULL)
+                {
                     for (j = 0; j < wordIndex; j++) {
                         free(wordArray[j]);
                     }
                     free(wordArray);
-                    return NULL;
+                    return (NULL);
                 }
-                // Copy the word
                 strncpy(wordArray[wordIndex], str + start, i - start);
                 wordArray[wordIndex][i - start] = '\0';
                 wordIndex++;
             }
-            start = i + 1; // Set the start index for the next word
+            start = i + 1;
         }
     }
-
-    // Handle the last word
     if (str[start] != '\0') {
         wordArray[wordIndex] = (char *)malloc((strlen(str + start) + 1) * sizeof(char));
-        if (wordArray[wordIndex] == NULL) {
-            // Memory allocation failed, clean up and return NULL
+        if (wordArray[wordIndex] == NULL)
+        {
             for (j = 0; j < wordIndex; j++) {
                 free(wordArray[j]);
             }
             free(wordArray);
-            return NULL;
+            return (NULL);
         }
         strcpy(wordArray[wordIndex], str + start);
         wordIndex++;
     }
 
-    wordArray[wordIndex] = NULL; // Null-terminate the word array
-    return wordArray;
+    wordArray[wordIndex] = NULL;
+    return (wordArray);
 }
 
 int countWords(const char *str)
@@ -81,7 +77,7 @@ int countWords(const char *str)
         }
     }
 
-    return count;
+    return (count);
 }
 
 int main(void)
@@ -90,14 +86,14 @@ int main(void)
     char **words = strtow("Hello World   This is a test");
     if (words == NULL) {
         printf("Memory allocation failed or input is empty.\n");
-        return 1;
+        return (1);
     }
 
     for (i = 0; words[i] != NULL; i++) {
         printf("%s\n", words[i]);
-        free(words[i]); // Free each word
+        free(words[i]);
     }
 
-    free(words); // Free the word array
-    return 0;
+    free(words);
+    return (0);
 }
