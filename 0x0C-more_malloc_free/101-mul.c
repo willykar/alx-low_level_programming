@@ -2,14 +2,20 @@
 #include <stdlib.h>
 #include <ctype.h>
 /**
- * isNumeric - check for an integer
- * @str: pointer to a string
- * Return: 0 if successful i if not
+ * multiply - function that multiplies two numbers
+ * @num1: first number
+ * @num2: second number
+ * Return: result of multiplication
 */
 unsigned long multiply(unsigned long num1, unsigned long num2)
 {
 	return (num1 * num2);
 }
+/**
+ * isNumeric - check for an integer
+ * @str: pointer to a string
+ * Return: 0 if successful i if not
+*/
 int isNumeric(const char *str)
 {
 	while (*str)
@@ -25,7 +31,7 @@ int isNumeric(const char *str)
 /**
  * main - main function
  * @argc: the number of arguments
- * argv: argument ventor
+ * @argv: argument ventor
  * Return: 0
 */
 int main(int argc, char *argv[])
