@@ -1,9 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+/**
+ * isNumeric - check for an integer
+ * @str: pointer to a string
+ * Return: 0 if successful i if not
+*/
 unsigned long multiply(unsigned long num1, unsigned long num2)
 {
-	return num1 * num2;
+	return (num1 * num2);
 }
 int isNumeric(const char *str)
 {
@@ -17,6 +22,12 @@ int isNumeric(const char *str)
 	}
 	return (1);
 }
+/**
+ * main - main function
+ * @argc: the number of arguments
+ * argv: argument ventor
+ * Return: 0
+*/
 int main(int argc, char *argv[])
 {
 	char *num1_str, *num2_str;
