@@ -2,10 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 /**
- * _realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+ * _realloc - reallocates a memory block using malloc and free
  * @old_size: the size, in bytes, of the allocated space for ptr
  * @new_size: the new size, in bytes of the new memory block
  * @ptr: a pointer to memory
+ * Return: pointer to the new memory
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
