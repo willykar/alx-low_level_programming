@@ -70,13 +70,13 @@ char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 
 int check_for_digits(char **av)
 {
-	int i, j;
+	int a, b;
 
-	for (i = 1; i < 3; i++)
+	for (a = 1; a < 3; a++)
 	{
-		for (j = 0; av[i][j]; j++)
+		for (b = 0; av[a][b]; b++)
 		{
-			if (av[i][j] < '0' || av[i][j] > '9')
+			if (av[a][b] < '0' || av[a][b] > '9')
 				return (1);
 		}
 	}
