@@ -11,21 +11,22 @@
 
 void _print(char *str, int l)
 {
-	int a, b;
+	int i, j;
 
-	a = b = 0;
-	while (a < l)
+	i = j = 0;
+	while (i < l)
 	{
-		if (str[a] != '0')
-			b = 1;
-		if (b || a == l - 1)
-			_putchar(str[a]);
-		b++;
+		if (str[i] != '0')
+			j = 1;
+		if (j || i == l - 1)
+			_putchar(str[i]);
+		i++;
 	}
 
 	_putchar('\n');
 	free(str);
 }
+
 /**
  * mul - multiplies a char then places the answer to a pointer
  * @n: char to multiply
@@ -37,14 +38,14 @@ void _print(char *str, int l)
  */
 char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 {
-	int j, k, multi, mulrem, add, addrem;
+	int j, k, mul, mulrem, add, addrem;
 
 	mulrem = addrem = 0;
 	for (j = num_index, k = dest_index; j >= 0; j--, k--)
 	{
-		multi = (n - '0') * (num[j] - '0') + mulrem;
-		mulrem = multi / 10;
-		add = (dest[k] - '0') + (multi % 10) + addrem;
+		mul = (n - '0') * (num[j] - '0') + mulrem;
+		mulrem = mul / 10;
+		add = (dest[k] - '0') + (mul % 10) + addrem;
 		addrem = add / 10;
 		dest[k] = add % 10 + '0';
 	}
@@ -66,21 +67,21 @@ char *mul(char n, char *num, int num_index, char *dest, int dest_index)
  * @av: pointer to arguments
  * Return: 0 if digit , 1 if not digit
  */
+
 int check_for_digits(char **av)
 {
-	int a, b;
+	int i, j;
 
-	for (a = 1; a < 3; a++)
+	for (i = 1; i < 3; i++)
 	{
-		for (b = 0; av[a][b]; a++)
+		for (j = 0; av[i][j]; j++)
 		{
-			if (av[a][b] < '0' || av[a][b] > '9')
+			if (av[i][j] < '0' || av[i][j] > '9')
 				return (1);
 		}
 	}
 	return (0);
 }
-
 /**
  * init - initializes a string
  * @str: sting to be initialized
@@ -90,12 +91,13 @@ int check_for_digits(char **av)
 
 void init(char *str, int l)
 {
-	int a;
+	int i;
 
-	for (a = 0; a < l; a++)
-		str[a] = '0';
-	str[a] = '\0';
+	for (i = 0; i < l; i++)
+		str[i] = '0';
+	str[i] = '\0';
 }
+
 /**
  * main - multiply two numbers
  * @argc: number of arguments
@@ -108,12 +110,12 @@ int main(int argc, char *argv[])
 	int l1, l2, ln, ti, i;
 	char *a;
 	char *t;
-	char b[] = "Error\n";
+	char e[] = "Error\n";
 
 	if (argc != 3 || check_for_digits(argv))
 	{
-		for (ti = 0; b[ti]; ti++)
-			_putchar(b[ti]);
+		for (ti = 0; e[ti]; ti++)
+			_putchar(e[ti]);
 		exit(98);
 	}
 	for (l1 = 0; argv[1][l1]; l1++)
@@ -124,8 +126,8 @@ int main(int argc, char *argv[])
 	a = malloc(ln * sizeof(char));
 	if (a == NULL)
 	{
-		for (ti = 0; b[ti]; ti++)
-			_putchar(b[ti]);
+		for (ti = 0; e[ti]; ti++)
+			_putchar(e[ti]);
 		exit(98);
 	}
 	init(a, ln - 1);
@@ -134,8 +136,8 @@ int main(int argc, char *argv[])
 		t = mul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
 		if (t == NULL)
 		{
-			for (ti = 0; b[ti]; ti++)
-				_putchar(b[ti]);
+			for (ti = 0; e[ti]; ti++)
+				_putchar(e[ti]);
 			free(a);
 			exit(98);
 		}
