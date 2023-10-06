@@ -91,11 +91,11 @@ int check_for_digits(char **av)
 
 void init(char *str, int l)
 {
-	int i;
+	int a;
 
-	for (i = 0; i < l; i++)
-		str[i] = '0';
-	str[i] = '\0';
+	for (a = 0; a < l; a++)
+		str[a] = '0';
+	str[a] = '\0';
 }
 
 /**
@@ -110,12 +110,12 @@ int main(int argc, char *argv[])
 	int l1, l2, ln, ti, i;
 	char *a;
 	char *t;
-	char e[] = "Error\n";
+	char err[] = "Error\n";
 
 	if (argc != 3 || check_for_digits(argv))
 	{
-		for (ti = 0; e[ti]; ti++)
-			_putchar(e[ti]);
+		for (ti = 0; err[ti]; ti++)
+			_putchar(err[ti]);
 		exit(98);
 	}
 	for (l1 = 0; argv[1][l1]; l1++)
@@ -126,8 +126,8 @@ int main(int argc, char *argv[])
 	a = malloc(ln * sizeof(char));
 	if (a == NULL)
 	{
-		for (ti = 0; e[ti]; ti++)
-			_putchar(e[ti]);
+		for (ti = 0; err[ti]; ti++)
+			_putchar(err[ti]);
 		exit(98);
 	}
 	init(a, ln - 1);
@@ -136,8 +136,8 @@ int main(int argc, char *argv[])
 		t = mul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
 		if (t == NULL)
 		{
-			for (ti = 0; e[ti]; ti++)
-				_putchar(e[ti]);
+			for (ti = 0; err[ti]; ti++)
+				_putchar(err[ti]);
 			free(a);
 			exit(98);
 		}
