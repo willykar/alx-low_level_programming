@@ -18,7 +18,7 @@ void _print(char *str, int l)
 	{
 		if (str[a] != '0')
 			b = 1;
-		if (b || i == l - 1)
+		if (b || a == l - 1)
 			_putchar(str[a]);
 		a++;
 	}
