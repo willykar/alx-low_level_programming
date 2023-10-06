@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
 		t = mul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
 		if (t == NULL)
 		{
-			for (ti = 0; e[ti]; ti++)
+			for (ti = 0; b[ti]; ti++)
 				_putchar(b[ti]);
 			free(a);
 			exit(98);
