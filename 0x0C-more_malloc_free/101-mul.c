@@ -11,16 +11,16 @@
 
 void _print(char *str, int l)
 {
-	int i, j;
+	int a, b;
 
-	i = j = 0;
-	while (i < l)
+	a = b = 0;
+	while (a < l)
 	{
-		if (str[i] != '0')
-			j = 1;
-		if (j || i == l - 1)
-			_putchar(str[i]);
-		i++;
+		if (str[a] != '0')
+			b = 1;
+		if (b || i == l - 1)
+			_putchar(str[a]);
+		a++;
 	}
 
 	_putchar('\n');
