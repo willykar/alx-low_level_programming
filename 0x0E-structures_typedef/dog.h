@@ -13,14 +13,15 @@ struct dog
 	char *owner;
 };
 #include <stdlib.h>
+
 void init_dog(struct dog *d, char *name, float age, char *owner);
-dog_t *new_dog(char *name, float age, char *owner);
-char *_strcpy(char *dest, char *src);
-int _strlen(char *s);
 void print_dog(struct dog *d);
 
 /*typedef for struct dog */
 typedef struct dog dog_t;
-/* Function to free memory allocated for a dog */
+
+dog_t *new_dog(char *name, float age, char *owner);
 void free_dog(dog_t *d);
+char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
 #endif /* DOG_H */
