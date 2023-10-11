@@ -6,19 +6,18 @@
  * @d: bytes to print
  * Return: nothing
  */
-void print_opcodes(char *f, int d)
+void print_opcodes(int num_bytes)
 {
-	int e;
+	int i;
 
-	for (e = 0; e < d; e++)
+	char *print_opcodes_addr = (char*)&print_opcodes;
+
+	for (i = 0; i < num_bytes; i++)
 	{
-		printf("%hhx", f[e]);
-		if (e < d - 1)
-			printf(" ");
+		printf("%02x ", print_opcodes_addr[i] & 0xFF);
 	}
 	printf("\n");
 }
-
 /**
  * main - main function
  * @argc: argument count number of arguments
@@ -27,20 +26,21 @@ void print_opcodes(char *f, int d)
  */
 int main(int argc, char **argv)
 {
-	int e;
+	int num_bytes;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		exit(1);
+		return (1);
 	}
 
-	e = atoi(argv[1]);
-	if (e < 0)
+	num_bytes = atoi(argv[1]);
+
+	if (num_bytes < 0)
 	{
 		printf("Error\n");
-		exit(2);
+		return (2);
 	}
-	print_opcodes((char *)&main, e);
+	print_opcodes(num_bytes);
 	return (0);
 }
