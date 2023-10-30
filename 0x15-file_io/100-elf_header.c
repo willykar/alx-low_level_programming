@@ -1,4 +1,5 @@
 #include "main.h"
+#include <elf.h>
 
 void check_elf(unsigned char *e_ident);
 void print_magic(unsigned char *e_ident);
@@ -258,7 +259,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	Elf64_Ehdr *header;
 	int u, v;
 
-	a = open(argv[1], O_RDONLY);
+	u = open(argv[1], O_RDONLY);
 	if (u == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
