@@ -20,7 +20,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	new_element->prev = NULL;
 	head_num = *head;
 
-	if (head_count != NULL)
+	if (head_num != NULL)
 	{
 		while (head_num->prev != NULL)
 			head_num = head_num->prev;
