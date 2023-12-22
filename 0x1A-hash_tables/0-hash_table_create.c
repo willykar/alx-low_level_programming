@@ -4,7 +4,7 @@
  * hash_table_create - A function that creates a hash table
  * @size: Size of the array
  *
- * Returns: (A pointer to the new hash table) or (NULL)
+ * Return: (A pointer to the new hash table) or (NULL)
  */
 hash_table_t *hash_table_create(unsigned long int size)
 {
