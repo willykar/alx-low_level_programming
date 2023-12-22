@@ -83,7 +83,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	new->value = value_copy;
-	new->next = ht->array[indie];
+	new->next = ht->array[inx];
 	ht->array[inx] = new;
 
 	if (ht->shead == NULL)
