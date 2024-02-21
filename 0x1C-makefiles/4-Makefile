@@ -17,6 +17,3 @@ oclean:
 fclean: clean oclean
 
 re: fclean all
-
-$(OBJ): $(SRC)
-	$(CC) $(OBJ) -c $^
