@@ -7,8 +7,10 @@
  */
 void print_subarray(int *array, size_t left, size_t right)
 {
+	size_t i;
+
 	printf("Searching in array: ");
-	for (size_t i = left; i <= right; ++i)
+	for (i = left; i <= right; ++i)
 	{
 		printf("%d", array[i]);
 		if (i < right)
@@ -30,7 +32,7 @@ void print_subarray(int *array, size_t left, size_t right)
 */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t i, left, middle, right;
+	size_t left, middle, right;
 
 	left = 0;
 	right = size - 1;
