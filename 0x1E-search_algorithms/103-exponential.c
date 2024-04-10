@@ -1,6 +1,4 @@
 #include "search_algos.h"
-#include <math.h>
-
 
 int binary_search_v2(int *array, int value, size_t start, size_t end);
 void printArray(int *array, size_t start, size_t end);
